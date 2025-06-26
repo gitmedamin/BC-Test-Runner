@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Test</title>
+
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@1.2.6/dist/web3.min.js"></script>
+    <script type="text/javascript" src="js/FileSaver.js"></script>
+    <script type="text/javascript" src="readfilejsonS1.js"></script>
+    <script type="text/javascript" src="sommeS2.js"></script>
+    <script type="text/javascript" src="readfileS3.js"></script>
+    <script type="text/javascript" src="createfileS4.js"></script>
+    <script type="text/javascript" src="testS5.js"></script>
+    <script type="text/javascript" src="chart.js"></script>
+    <script type="text/javascript" src="bar.js"></script>
+    <script type="text/javascript" src="affichage.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 7px 8px;
+            text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+        
+        .active {
+            background-color: #04AA6D;
+        }
+        
+        .pageweb {
+            border-radius: 5px;
+            height: 360px;
+            width: 760px;
+            border: 2px solid;
+            margin-top: 0px;
+            margin-left: 11px;
+            margin-bottom: 11px;
+            margin-right: 11px;
+        }
+        
+        .input {
+            border: 1px solid;
+            border-radius: 5px;
+            height: 125px;
+            width: 745px;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+            font-size: .70em;
+        }
+        
+        .test {
+            border-radius: 5px;
+            border: 1px solid;
+            height: 170px;
+            width: 370px;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+        
+        .graphe {
+            border-radius: 5px;
+            border: 1px solid;
+            height: 170px;
+            width: 370px;
+            margin-top: -175px;
+            margin-left: 380px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+        
+        h3 {
+            display: block;
+            font-size: .70em;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            margin-left: 50%;
+            margin-right: 0px;
+            font-weight: bold;
+        }
+        
+        .custom-file {
+            width: 140px;
+            height: 30px;
+            margin-top: 20px;
+            font-size: .80em;
+            margin-left: 5px;
+        }
+        
+        .tab {
+            overflow: hidden;
+            border-radius: 5px;
+            background-color: #6b6c70;
+        }
+        
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            height: 30px;
+            transition: 0.3s;
+            font-size: 10px;
+            color: white;
+        }
+        
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        /* Create an active/current tablink class */
+        
+        .tab button.active {
+            background-color: rgb(8, 8, 8);
+        }
+        
+        .tabcontent {
+            display: none;
+            height: 125px;
+            border-radius: 5px;
+            border-top: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+    <div class="pageweb">
+        <div class="tab">
+            <button id="T" onclick="test()">Test</button>
+            <button id="cr" onclick="createfile()">Report</button>
+
+
+        </div>
+
+
+        <div class="input">
+
+
+            <label for="filejson" style="margin-left: 5px;">Select a file:</label>
+            <div class="custom-file ">
+
+                <input type="file" class="custom-file-input" id="filejson" name="filename">
+                <label class="custom-file-label" for="customFile">Choose json file </label>
+
+            </div>
+            <label for="mySelect" style="margin-left: 5px;">Function:</label>
+            <select id="mySelect" style="width: 2cm;"></select>
+            <label for="Type" style="margin-left: 10px;">Type of function:</label>
+            <select id="Type">
+                <option>send</option>
+                <option>call</option>
+            </select>
+            <label for="from" style="margin-left: 5px;">From:</label>
+            <select id="from" style="width: 5cm;"></select><br>
+
+            <label for="filetxt" style="margin-left: 5px;">Select a file:</label>
+            <div class="custom-file ">
+                <input type="file" class="custom-file-input" id="filetxt" name="txt">
+                <label class="custom-file-label" for="customFile">Choose txt file </label><br>
+
+            </div>
+            <label for="Input" style="margin-left: 5px;margin-top: -30px;">Input:</label>
+            <select id="Input" style="width: 2cm;height: 20px;"></select>
+            <label for="Output" style="margin-left: 5px;margin-top: -30px;">Output:</label>
+            <select id="Output" style="width: 2cm;height: 20px;"></select>
+            <label for="event" style="margin-left: 5px;margin-top: -30px;">Event:</label>
+            <select id="event" style="width: 2cm;height: 20px;"></select>
+
+            <label for="fallback" style="margin-left: 5px;margin-top: -30px;">Fallback:</label>
+            <select id="fallback" style="width: 2cm;height: 20px;"></select>
+
+        </div>
+
+        <div class="test">
+
+
+            <div class="tab">
+
+                <button class="tablinks" onclick="openCity(event, 'Result')">Result</button>
+
+                <button class="tablinks" onclick="openCity(event, 'Transaction')">Transaction</button>
+                <button id="Testcases " class="tablinks " onclick="openCity(event, 'Block') ">Testcases(0)</button>
+                <button id="Passed " style="color:green; " class="tablinks " onclick="openCity(event, 'Block') ">Passed(0)</button>
+                <button id="Failed " style="color: red; " class="tablinks " onclick="openCity(event, 'Block') ">Failed(0)</button>
+            </div>
+            <div id="Result" class="tabcontent" style="font-size: 10px;">
+
+
+            </div>
+
+            <div id="Block" class="tabcontent">
+                vvvvvvvvvvvvvv
+
+            </div>
+
+            <div id="Transaction" class="tabcontent" style="font-size: 50%; color:black">
+
+            </div>
+        </div>
+
+        <div class="graphe">
+
+            <div class="tab" style="width: 50px;height: 168px;">
+
+
+
+                <button id="p" onclick="drawpie()">Piechart</button>
+
+            </div>
+            <div id="chartContainer" style=" 
+            border: 1px solid;
+            height: 140px;
+            width: 300px;
+            margin-top: -150px;
+            margin-left: 60px;
+            margin-bottom: 5px;
+            margin-right: 10px;">
+            </div>
+        </div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script>
+            // Add the following code if you want the name of the file appear on select
+            $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+            $(".custom-file-input").on("change", function() {
+                var txt = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(txt);
+            });
+        </script>
+        <script>
+            function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+        </script>
+
+        <script type="text/javascript" src="mainS0.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>register</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@1.2.6/dist/web3.min.js"></script>
+    <script type="text/javascript" src="js/FileSaver.js"></script>
+    <script type="text/javascript" src="readfilejsonS1.js"></script>
+    <script type="text/javascript" src="sommeS2.js"></script>
+    <script type="text/javascript" src="readfileS3.js"></script>
+    <script type="text/javascript" src="createfileS4.js"></script>
+    <script type="text/javascript" src="testS5.js"></script>
+    <script type="text/javascript" src="chart.js"></script>
+
+
+
+</head>
+
+<body>
+    <label for="Input" style="margin-left: 2cm;">Input:</label>
+    <select id="Input" multiple style="width: 2cm;height: 20px;"></select>
+
+    <center>
+        <h1>Somme</h1>
+
+        <from id="hello">
+
+            <label for="mySelect">Function:</label>
+            <select id="mySelect"></select>
+            <label for="Type of function">Function:</label>
+            <select id="Type">
+                <option>send</option>
+                <option>call</option>
+            </select>
+
+
+
+
+
+            <button id="cr" onclick="createfile()">createfile</button><br><br>
+            <button id="T" onclick="test()">test</button><br><br>
+            <button id="p" onclick="drawpie()">draw pie chart</button><br><br>
+            <p id="hello-result"></p>
+            <input id="filejson" type="file" />json<br><br>
+            <input id="filetxt" type="file" />txt<br><br>
+
+            <label id="t"></label>
+
+        </from>
+
+    </center>
+
+    <div id="chartContainer" style="height: 100px; width: 80%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script type="text/javascript" src="mainS0.js"></script>
+
+
+
+
+
+</body>
+
+</html>

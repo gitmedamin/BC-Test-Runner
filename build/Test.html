@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@1.2.6/dist/web3.min.js"></script>
+    <script type="text/javascript" src="js/FileSaver.js"></script>
+    <script type="text/javascript" src="readfilejsonS1.js"></script>
+    <script type="text/javascript" src="sommeS2.js"></script>
+    <script type="text/javascript" src="readfileS3.js"></script>
+    <script type="text/javascript" src="createfileS4.js"></script>
+    <script type="text/javascript" src="testS5.js"></script>
+    <script type="text/javascript" src="chart.js"></script>
+    <script type="text/javascript" src="bar.js"></script>
+    <script type="text/javascript" src="affichage.js"></script>
+</head>
+
+<div style="height: 360px; width: 98%;border: 1px solid;margin-left: 5px;margin-right:5px; margin-top: 5px;margin-bottom:5px ; ">
+
+
+    <body>
+
+        <style>
+            .file {
+                padding: 20px;
+                width: 400px;
+                margin: 40px;
+            }
+        </style>
+
+
+        <div class="file ">
+
+            <h6>Select a file:</h6>
+            <div class="custom-file ">
+                <input type="file" class="custom-file-input" id="filejson" name="filename">
+                <label class="custom-file-label" for="customFile">Choose json file </label>
+
+            </div>
+
+
+            <h6>Select a file:</h6>
+            <div class="custom-file ">
+                <input type="file" class="custom-file-input" id="filetxt" name="txt">
+                <label class="custom-file-label" for="customFile">Choose txt file </label><br>
+
+            </div>
+            <div class="mt-2">
+                <button id="T" onclick="test()" class="btn btn-outline-danger">test</button><br>
+
+
+                <div class="mt-1" id="myProgress" style="background-color:white ;width: 100%;">
+                    <div class="Bar" id="myBar" style="background-color:#04AA6D; width: 0%;height: 15px;text-align: center;line-height: 15px ;
+                    color: white;">
+
+                    </div>
+                    <div class="mt-1" id="af"></div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <div id="chartContainer" style="height: 140px; width: 77%;border: 1px solid;margin-left: 400px;margin-right: 20px; margin-top: -200px;font-size:8px ">
+            </div>
+            <div class="mt-3" style="height: 100px; width: 80%;margin-left: 400px;margin-right: 20px; margin-top: -200px; ">
+                <button id="p" onclick="drawpie()" class="btn btn-outline-secondary">piechart</button>
+                <button id="pr" onclick="properties()" class="btn btn-outline-secondary">properties</button>
+
+                <button id="cr" onclick="createfile()" class="btn btn-outline-secondary">Report</button><br><br>
+            </div>
+
+
+        </div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+        <script>
+            // Add the following code if you want the name of the file appear on select
+            $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+            $(".custom-file-input").on("change", function() {
+                var txt = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(txt);
+            });
+        </script>
+        <script type="text/javascript" src="mainS0.js"></script>
+
+
+
+</div>
+
+</body>

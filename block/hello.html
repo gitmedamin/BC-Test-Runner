@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>helloword</title>
+
+    <script type="text/javascript" src="js/web3.min.js"></script>
+    <script type="text/javascript" src="hello.js"></script>
+    <script type="text/javascript" src="h1.js"></script>
+    <script type="text/javascript" src="h2.js"></script>
+
+
+</head>
+
+<body>
+    <center>
+        <h1>Test</h1>
+        <from id="hello">
+
+
+
+            <button id="get" onclick="gethello()">Get_hello</button>
+        </from>
+        <p id="hello-result"></p>
+    </center>
+
+
+    <!--innerHTML-->
+    <script>
+        web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+
+
+        var y, s
+        var h
+        readTextFile("contracts/helloword.json", function(text) {
+
+            var data = JSON.parse(text);
+            var x = data.networks[5777].address
+            var z = data.abi;
+            s = z;
+
+            //console.log(data.abi);
+            y = x;
+            //console.log(x);
+            //document.getElementById("hello").innerHTML = y
+
+            h = new web3.eth.Contract(s, y);
+            y = x;
+        });
+    </script>
+
+
+</body>
+
+</html>

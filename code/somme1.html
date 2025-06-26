@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+
+    <title>register</title>
+
+    <script type="text/javascript" src="./js/web3.min.js"></script>
+
+    <script type="text/javascript" src="S1.js"></script>
+    <script type="text/javascript" src="S2.js"></script>
+
+</head>
+
+<body>
+    <center>
+        <h1>Somme</h1>
+        <from id="hello">
+
+            <label for="valeur1">valeur1:</label>
+            <input type="number" id="valeur1" name="valeur1"><br><br>
+            <label for="valeur2">valeur2:</label>
+            <input type="number" id="valeur2" name="valeur2"><br><br>
+            <button id="sum" onclick="somme()">somme</button>
+
+            <p id="hello-result"></p>
+
+        </from>
+
+    </center>
+    <script>
+        web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+
+
+        var y, s
+        var h
+        readTextFile("contracts\somme.json", function(text) {
+
+            var data = JSON.parse(text);
+            var x = data.networks[5777].address
+            var z = data.abi;
+            s = z;
+
+            //console.log(data.abi);
+            y = x;
+            //console.log(x);
+            //document.getElementById("hello").innerHTML = y
+
+            h = new web3.eth.Contract(s, y);
+            y = x;
+        });
+        var account;
+
+
+        web3.eth.getAccounts(function(err, accounts) {
+            if (err != null) {
+                alert("Error retrieving accounts.");
+                return;
+            }
+            if (accounts.length == 0) {
+                alert("No account found! Make sure the Ethereum client is configured properly.");
+                return;
+            }
+            account = accounts[0];
+            console.log('Account: ' + account);
+            web3.eth.defaultAccount = account;
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

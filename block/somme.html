@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>register</title>
+
+    <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/web3.min.js"></script>
+    <script src="./js/truffle-contract.min.js"></script>
+    <script type="text/javascript" src="somme.js"></script>
+    <script type="text/javascript" src="somme1.js"></script>
+    <script type="text/javascript" src="somme2.js"></script>
+
+
+
+
+</head>
+
+<body>
+    <center>
+        <h1>Somme</h1>
+        <from id="hello">
+
+            <label for="valeur1">valeur1:</label>
+            <input type="number" id="valeur1" name="valeur1"><br><br>
+            <label for="valeur2">valeur2:</label>
+            <input type="number" id="valeur2" name="valeur2"><br><br>
+            <button id="sum">somme</button><br><br>
+            <p id="hello-result"></p><br>
+            <input id="file" type="file">
+
+            <p id="h"></p>
+            <input type="Button" value="Click to Create New File" onClick='createFile()'>
+
+        </from>
+
+    </center>
+    <script>
+        function createFile() {
+            var myObject, newfile;
+            myObject = new ActiveXObject("Scripting.FileSystemObject");
+            newfile = myObject.CreateTextFile("D:\\test1.txt", false);
+        }
+    </script>
+
+    <!--innerHTML-->
+
+
+</body>
+
+</html>
